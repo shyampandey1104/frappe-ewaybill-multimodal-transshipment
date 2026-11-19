@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include ewaybill_transshipment *.css
+recursive-include ewaybill_transshipment *.csv
+recursive-include ewaybill_transshipment *.html
+recursive-include ewaybill_transshipment *.ico
+recursive-include ewaybill_transshipment *.js
+recursive-include ewaybill_transshipment *.json
+recursive-include ewaybill_transshipment *.md
+recursive-include ewaybill_transshipment *.png
+recursive-include ewaybill_transshipment *.py
+recursive-include ewaybill_transshipment *.svg
+recursive-include ewaybill_transshipment *.txt
+recursive-exclude ewaybill_transshipment *.pyc

@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "frappe-ewaybill-multimodal-transshipment"
+authors = [{name = "Shyam Kumar Pandey", email = "shyamkumarpandey1104@gmail.com"}]
+description = "Frappe E-Way Bill Multi-Vehicle Transshipment & RFID FASTag Toll Engine: Part-B Updates & Sec 129 Penalty Guard."
+version = "1.0.0"
+readme = "README.md"
+classifiers = ["Framework :: Frappe"]

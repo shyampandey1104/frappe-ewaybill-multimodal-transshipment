@@ -1,14 +1,37 @@
-# Copyright (c) 2026, Shyam Kumar Pandey and contributors
+# Copyright (c) 2026, Shyamkumar Pandey and contributors
 # For license information, please see license.txt
 
-app_name = "frappe-ewaybill-multimodal-transshipment"
+app_name = "ewaybill_transshipment"
 app_title = "Frappe Ewaybill Multimodal Transshipment"
-app_publisher = "Shyam Kumar Pandey"
-app_description = "Frappe E-Way Bill Multi-Vehicle Transshipment & RFID FASTag Toll Engine: Part-B Updates & Sec 129 Penalty Guard."
-app_icon = "octicon octicon-book"
-app_color = "#5890FF"
-app_email = "shyamkumarpandey1104@gmail.com"
+app_publisher = "Shyamkumar Pandey"
+app_description = "Frappe Ewaybill Multimodal Transshipment - Enterprise Multi-DocType Solution for Frappe & ERPNext"
+app_email = "shyampandey1104@gmail.com"
 app_license = "MIT"
 
-app_include_js = "/assets/ewaybill_transshipment/js/ewaybill_transshipment.bundle.js"
+# Includes in <head>
+# ------------------
 app_include_css = "/assets/ewaybill_transshipment/css/ewaybill_transshipment.bundle.css"
+app_include_js = "/assets/ewaybill_transshipment/js/ewaybill_transshipment.bundle.js"
+
+# Document Events
+# ---------------
+doc_events = {
+    "Frappe Ewaybill Multimodal Transshipment Entry": {
+        "validate": "ewaybill_transshipment.services.validator.EnterpriseValidationEngine.validate_compliance_rules",
+        "on_submit": "ewaybill_transshipment.services.integration_service.EnterpriseIntegrationService.verify_remote_status"
+    }
+}
+
+# Scheduled Background Tasks
+# --------------------------
+scheduler_events = {
+    "hourly": [
+        "ewaybill_transshipment.tasks.hourly_sync"
+    ],
+    "daily": [
+        "ewaybill_transshipment.tasks.daily_reconciliation"
+    ],
+    "weekly": [
+        "ewaybill_transshipment.tasks.weekly_digest"
+    ]
+}
